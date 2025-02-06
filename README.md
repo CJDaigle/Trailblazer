@@ -1,5 +1,5 @@
 
-![basic!](.docs/lab-simple.png)
+![basic!](./docs/lab-simple.png)
 # Trailblzaers K8s space 
  objective here is to gain a level of comfort in the cloud native application space 
 ### Basic Could Native Application for Lab

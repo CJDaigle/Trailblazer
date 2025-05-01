@@ -1,12 +1,13 @@
 
 ![basic!](./docs/lab-simple.png)
 # Trailblzaers K8s space 
- objective here is to gain a level of comfort in the cloud native application space 
+ objective here is to gain a level of comfort in the cloud native application space. 
 ### Basic Could Native Application for Lab
 
 ## The Rancher Node
 
 ### install k3s
+K3s is a light weight k8s installtion we will use to house Rancher.
 ~~~
 K3s_VERSION="v1.27.10+k3s2"
 
@@ -16,6 +17,7 @@ curl -sfL https://get.k3s.io | \
         sh -s -
 ~~~
 ### install helm
+we use helm to install rancher and cilium
 ~~~
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -27,8 +29,11 @@ mkdir .kube
 cp /etc/rancher/k3s/k3s.yaml .kube/config
 ~~~
 ### Cert Manager check for version compat
-~~~
+
+Check the current version for compatibility.
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<VERSION>/cert-manager.crds.yaml
+
+~~~
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.7/cert-manager.crds.yaml
 
 helm repo add jetstack https://charts.jetstack.io
@@ -40,6 +45,7 @@ kubectl create namespace cert-manager
 helm install cert-manager jetstack/cert-manager --namespace cert-manager 
 ~~~
 ### Rancher Install
+
 ~~~
 
 

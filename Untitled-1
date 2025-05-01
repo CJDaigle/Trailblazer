@@ -1,0 +1,11 @@
+helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
+
+helm repo update
+
+kubectl create namespace cattle-system
+
+helm install rancher rancher-latest/rancher \
+  --namespace cattle-system \
+  --set hostname=13.58.154.12.sslip.io \
+  --set replicas=1 \
+  --set bootstrapPassword=Rancher

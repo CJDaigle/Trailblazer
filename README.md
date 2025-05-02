@@ -44,7 +44,7 @@ kubectl create namespace cert-manager
 
 helm install cert-manager jetstack/cert-manager --namespace cert-manager 
 ~~~
-check the cert manager is running
+### check the cert manager is running
 ~~~
 kubectl get po -n cert-manager
 ~~~

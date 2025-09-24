@@ -9,7 +9,7 @@
 ### install k3s
 K3s is a light weight k8s installtion we will use to house Rancher.
 ~~~
-K3s_VERSION="v1.27.10+k3s2"
+K3s_VERSION="v1.33.5+k3s1"
 
 curl -sfL https://get.k3s.io | \
         INSTALL_K3S_VERSION=${K3s_VERSION} \
@@ -34,7 +34,8 @@ Check the current version for compatibility.
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<VERSION>/cert-manager.crds.yaml
 
 ~~~
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.7/cert-manager.crds.yaml
+
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.2/cert-manager.yaml
 
 helm repo add jetstack https://charts.jetstack.io
 

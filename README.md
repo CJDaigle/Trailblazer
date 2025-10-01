@@ -46,7 +46,7 @@ helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --version v1.18.2 \
-  --set installCRDs=true
+  --set crds.enabled=true
 
 ~~~
 ### check the cert manager is running

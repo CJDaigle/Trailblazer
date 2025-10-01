@@ -70,11 +70,12 @@ helm install rancher rancher-latest/rancher \
   --set replicas=1 \
   --set bootstrapPassword=Rancher
 ~~~
+*remeber hostname is the public ip and must be permanant*
 ### check the rancher is running
 ~~~
 wait -n 2 kubectl get po -n cattle-system
 ~~~
-*remeber hostname is the public ip and must be permanant*
+
 ## 2) Node setup Ubuntu (performed on each node in the cluster)
 
 *Disable UFW*

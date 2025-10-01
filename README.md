@@ -73,7 +73,7 @@ helm install rancher rancher-latest/rancher \
 *remeber hostname is the public ip and must be permanant*
 ### check the rancher is running
 ~~~
-wait -n 2 kubectl get po -n cattle-system
+watch -n 2 kubectl get po -n cattle-system
 ~~~
 
 ## 2) Node setup Ubuntu (performed on each node in the cluster)

@@ -1,23 +1,25 @@
 
 ![basic!](./docs/lab-simple.png)
-# Trailblzaers K8s space 
- objective here is to gain a level of comfort in the cloud native application space. 
-### Basic Could Native Application for Lab
+# Trailblazers K8s Space
 
-## The Rancher Node
+The objective here is to gain a level of comfort in the cloud native application space.
+
+## Basic Cloud Native Application for Lab
+
+## 1) The Rancher Node
 
 ### install k3s
-K3s is a light weight k8s installtion we will use to house Rancher.
+K3s is a lightweight K8s installation we will use to house Rancher.
 ~~~
-K3s_VERSION="v1.33.5+k3s1"
+K3S_VERSION="v1.33.5+k3s1"
 
 curl -sfL https://get.k3s.io | \
-        INSTALL_K3S_VERSION=${K3s_VERSION} \
+        INSTALL_K3S_VERSION=${K3S_VERSION} \
         INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' \
         sh -s -
 ~~~
 ### install helm
-we use helm to install rancher and cilium
+We use Helm to install Rancher and Cilium.
 ~~~
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
@@ -28,13 +30,12 @@ chmod 700 get_helm.sh
 mkdir .kube
 cp /etc/rancher/k3s/k3s.yaml .kube/config
 ~~~
-### Cert Manager check for version compat
+### Cert Manager
 
-Check the current version for compatibility.
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<VERSION>/cert-manager.crds.yaml
+Check the current version for compatibility. Replace `<VERSION>` with the desired cert-manager release version (e.g., `v1.17.4`).
 
 ~~~
-
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<VERSION>/cert-manager.crds.yaml
 
 helm repo add jetstack https://charts.jetstack.io
 
@@ -54,9 +55,9 @@ kubectl get po -n cert-manager
 ~~~
 ### Rancher Install
 
+Replace `<instanceip>` with your node's public IP address.
+
 ~~~
-
-
 helm repo add rancher-latest https://releases.rancher.com/server-charts/latest
 
 helm repo update
@@ -69,7 +70,7 @@ helm install rancher rancher-latest/rancher \
   --set replicas=1 \
   --set bootstrapPassword=Rancher
 ~~~
-*remeber hostname is the public ip and must be permanant*
+*Remember: hostname is the public IP and must be permanent.*
 ### check the rancher is running
 ~~~
 watch -n 2 kubectl get po -n cattle-system

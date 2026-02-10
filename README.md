@@ -87,3 +87,7 @@ sudo reboot
 
 #### Define a K8s Cluster
 *Use Rancher UI to define and deploy a K8s cluster*
+
+## Additional Guides
+
+- [Configure Cilium in AWS](./docs/configure-cilium-in-aws.md)

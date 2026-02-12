@@ -184,3 +184,26 @@ spec:
 - **Hubble UI not loading** — Confirm `hubble-relay` pods are running and the relay service is healthy.
 - **Cluster Mesh not connecting** — Ensure both clusters have unique `cluster.id` values and the Cluster Mesh API server service is reachable (check LoadBalancer external IP).
 - **Gateway not getting an address** — Confirm Gateway API CRDs were installed before Cilium and that the `cilium` GatewayClass exists (`kubectl get gatewayclasses`).
+
+### Save Current State & Health Check
+
+Run these commands to capture the current Cilium Helm values and verify cluster health. Useful before upgrades or debugging sessions.
+
+~~~bash
+# Save current Helm values
+helm get values cilium -n kube-system > ~/cilium-values-base.yaml
+
+# Current Helm revision
+helm history cilium -n kube-system | tail -5
+
+# Cluster health check
+cilium status
+
+# Gateway status
+kubectl get gatewayclass cilium
+kubectl get gateway main-gateway
+kubectl get ciliumenvoyconfigs --all-namespaces
+
+# Gateway node status
+kubectl get nodes -l role=gateway
+~~~

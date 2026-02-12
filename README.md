@@ -93,4 +93,3 @@ sudo reboot
 - [Configure Cilium in AWS](./docs/configure-cilium-in-aws.md)
 - [Cilium Gateway API Setup - Recap](./docs/cilium-gateway-recap.md)
 - [Cilium Gateway API Overrides](./docs/cilium-overrides.yaml)
-- [Save Current State Script](./docs/save-current-state.sh)

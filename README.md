@@ -11,7 +11,7 @@ The objective here is to gain a level of comfort in the cloud native application
 ### install k3s
 K3s is a lightweight K8s installation we will use to house Rancher.
 ~~~
-K3S_VERSION="v1.33.5+k3s1"
+K3S_VERSION="v1.36.1+k3s1"
 
 curl -sfL https://get.k3s.io | \
         INSTALL_K3S_VERSION=${K3S_VERSION} \
